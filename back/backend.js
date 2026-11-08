@@ -258,17 +258,7 @@ fs.readdir("../", (err, files) => {
     }
 })
 
-if(fs.existsSync("../Dockerfile")) {
-    let dockerfile = fs.readFileSync("../Dockerfile").toString().split("\r").join("")
-    let crypto = require("crypto")
-    let d = crypto.createHash("sha1")
-    d.update(dockerfile)
-    let digest = d.digest("hex")
-    if(digest !== "12ebf7846712a281f149fcf0804eae9011a3983b") {
-        console.log("Docker Validation Failure")
-        process.exit(1);
-    }
-}
+
 
 yt2009_exports.writeData("dkey", Buffer.from(
     "WUFISUFRSFlBd0c0QkFYd0JBSDRCQUdpQmhVQk8yQXlJaUxObW9TLVVsb2FnbmQxSzJkNURQYyUzRA",
