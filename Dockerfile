@@ -1,4 +1,7 @@
 FROM node:lts-alpine3.24
+
+ENV NODE_OPTIONS=--max-http-header-size=65536
+
 RUN apk add --no-cache imagemagick cabextract git && \
     wget -P /tmp/ https://www.freedesktop.org/software/fontconfig/webfonts/webfonts.tar.gz && \
     tar -xzf /tmp/webfonts.tar.gz -C /tmp && \
